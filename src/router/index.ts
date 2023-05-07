@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import BotsView from '@/views/BotsView.vue'
-import ItemView from '@/views/ItemView.vue'
-import ItemInfo from '@/components/item/ItemInfo.vue'
-import ItemProps from '@/components/item/ItemProps.vue'
+import BotView from '@/views/BotView.vue'
+import EditBot from '@/components/bot/EditBot.vue'
+import BotStats from '@/components/bot/BotStats.vue'
 import LogoutView from '@/views/LogoutView.vue'
 
 const router = createRouter({
@@ -25,23 +25,23 @@ const router = createRouter({
     },
     {
       path: '/new',
-      name: 'newItem',
-      component: ItemView,
+      name: 'newBot',
+      component: BotView,
       children: [
         {
           path: '',
-          name: 'newItemHome',
-          redirect: { name: 'itemInfo' },
+          name: 'newBotHome',
+          redirect: { name: 'editBot' },
         },
         {
-          name: 'itemInfo',
+          name: 'editBot',
           path: 'info',
-          component: ItemInfo,
+          component: EditBot,
         },
         {
-          name: 'itemProps',
+          name: 'botStats',
           path: 'props',
-          component: ItemProps,
+          component: BotStats,
         },
       ],
     },
