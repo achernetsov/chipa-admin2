@@ -3,29 +3,30 @@ import { MoonIcon } from '@heroicons/vue/24/solid'
 import { SunIcon } from '@heroicons/vue/24/solid'
 import { themeChange } from 'theme-change'
 import { onMounted, ref } from 'vue'
+import { findCurrentTheme } from './theme'
+import { useThemeStore } from '@/stores/theme'
 
-const theme=ref<String>()
+const themeStore = useThemeStore()
 
 onMounted(()=>{
     themeChange(false)
 
-    const currentTheme = document.querySelector("html")!.attributes.getNamedItem('data-theme')!.nodeValue
-    theme.value = currentTheme!
-    console.info(`Theme: ${currentTheme}`)
+    themeStore.theme = findCurrentTheme()!
+    console.info(`Theme: ${themeStore.theme}`)
 })
 
 function onThemeToggle(){
-    const previousTheme = document.querySelector("html")!.attributes.getNamedItem('data-theme')!.nodeValue
+    const previousTheme = findCurrentTheme()
     console.info(`Changing theme from: ${previousTheme}`)
 
-    theme.value = previousTheme == 'dark'? 'light': 'dark'
+    useThemeStore().theme = previousTheme == 'dark'? 'light': 'dark'
 }
 </script>
 
 <!-- https://github.com/saadeghi/theme-change -->
 <template>
     <button @click="onThemeToggle()" class="btn gap-2 btn-ghost" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
-        <MoonIcon v-if="theme=='light'" class="flex-1 w-5" />
-        <SunIcon v-if="theme=='dark'" class="flex-1 w-5" />
+        <MoonIcon v-if="themeStore.theme=='light'" class="flex-1 w-5" />
+        <SunIcon v-if="themeStore.theme=='dark'" class="flex-1 w-5" />
     </button>
 </template>
