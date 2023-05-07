@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HelloView from '@/views/HelloView.vue'
+import BotsView from '@/views/BotsView.vue'
 import ItemView from '@/views/ItemView.vue'
 import ItemInfo from '@/components/item/ItemInfo.vue'
 import ItemProps from '@/components/item/ItemProps.vue'
@@ -11,7 +11,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HelloView
+      redirect: { name: 'bots' }
+    },
+    {
+      path: '/welcome',
+      name: 'welcome',
+      component: () => import('@/views/FirstBotView.vue'),
+    },
+    {
+      path: '/bots',
+      name: 'bots',
+      component: BotsView,
     },
     {
       path: '/new',
