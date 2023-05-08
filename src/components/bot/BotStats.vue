@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useItemStore } from '@/stores/item'
+import { useBotStore } from '@/stores/currentBot'
 
-const itemStore = useItemStore()
+const botStore = useBotStore()
 </script>
 
 <template>
-    <div id="item-proprs-tab" class="overflow-x-auto">
+    stats
+    <!-- <div id="item-proprs-tab" class="overflow-x-auto">
         <table class="table w-full">
-            <!-- head -->
             <thead>
                 <tr>
                     <th></th>
@@ -25,5 +25,5 @@ const itemStore = useItemStore()
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 </template>

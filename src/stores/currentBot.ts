@@ -8,3 +8,12 @@ export const useBotStore = defineStore('bot', () => {
 
   return { bot }
 })
+
+export function initNewBot() {
+  useBotStore().bot = {
+    id: null,
+    name: '',
+    description: '',
+    language: 'en-EN'
+  } as Bot
+}

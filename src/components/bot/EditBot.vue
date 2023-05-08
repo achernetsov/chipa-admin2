@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useItemStore } from '@/stores/item'
+import { useBotStore } from '@/stores/currentBot'
 
-const itemStore = useItemStore()
+const botStore = useBotStore()
 </script>
 
 <template>
@@ -11,26 +11,23 @@ const itemStore = useItemStore()
             <label class="label">
                 <span class="label-text">Name</span>
             </label>
-            <input v-model="itemStore.item!.name"  type="text" placeholder="Type name here" class="input input-bordered w-full" />
+            <input v-model="botStore.bot!.name"  type="text" placeholder="Type name here" class="input input-bordered w-full" />
         </div>
         <div class="form-control w-full">
             <label class="label">
-                <span class="label-text">Type</span>
+                <span class="label-text">Language</span>
             </label>
-            <select class="select select-bordered">
-                <option disabled selected>Pick one</option>
-                <option>Star Wars</option>
-                <option>Harry Potter</option>
-                <option>Lord of the Rings</option>
-                <option>Planet of the Apes</option>
-                <option>Star Trek</option>
+            <select v-model="botStore.bot!.language" class="select select-bordered">
+                <option value="en-EN" selected>English</option>
+                <option value="pl-PL">Polish</option>
+                <option value="ru-RU">Russian</option>
             </select>
         </div>
         <div class="form-control md:col-span-2">
             <label class="label">
                 <span class="label-text">Description</span>
             </label>
-            <textarea class="textarea textarea-bordered h-24" placeholder="Item description"></textarea>
+            <textarea v-model="botStore.bot!.description" class="textarea textarea-bordered h-24" placeholder="Item description"></textarea>
         </div>
     </div>
 

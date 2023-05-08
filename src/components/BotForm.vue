@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { useItemStore } from '@/stores/item';
+import { useBotStore } from '@/stores/currentBot';
 import { onMounted } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 
 const route = useRoute()
-const itemStore = useItemStore()
+const botStore = useBotStore()
 </script>
 
 <template>

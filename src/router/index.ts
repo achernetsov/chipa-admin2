@@ -24,7 +24,7 @@ const router = createRouter({
       component: BotsView,
     },
     {
-      path: '/new',
+      path: '/bots/new',
       name: 'newBot',
       component: BotView,
       children: [
