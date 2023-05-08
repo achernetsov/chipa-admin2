@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SomethingWrongError from '@/components/errors/SomethingWrongError.vue'
 import PageContentLayout from '@/containers/PageContentLayout.vue'
+import Bots from '@/components//bots/Bots.vue'
 
 import { type Bot } from '@/model/bots'
 import { authHeaders } from '@/stores/keycloak'
@@ -20,14 +21,15 @@ onMounted(() => {
             if (response.ok) {
                 return response.json();
             }
-            throw new Error(`status: ${response.status}; message: ${response.statusText}`);
+            throw new Error(`Status: ${response.status}; message: ${response.statusText}`);
         })
         .then((data) => {
-            bots.value = data
-            console.info('Loaded ' + bots!.value!.length + ' bots')
-            if (bots.value!.length == 0){
-                console.log('Redirecting to first bot page')
+            console.info(`Loaded ${data?.length} bots`)
+            if (data?.length == 0){
+                console.info('Redirecting to first bot page')
                 router.push('/welcome')
+            } else if (data?.length>0){
+                bots.value = data
             }
         })
         .catch((err) => {
@@ -39,8 +41,8 @@ onMounted(() => {
 
 <template>
     <PageContentLayout>
-        <button v-if="!error" class="btn loading">loading</button>
-        
+        <button v-if="!error && !bots" class="btn loading">loading</button>
+        <Bots v-if="bots" :bots="bots"></Bots>
         <SomethingWrongError v-if="error" />
     </PageContentLayout>
 </template>

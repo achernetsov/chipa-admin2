@@ -2,8 +2,10 @@
 import {ref} from 'vue'
 import { useThemeStore } from '@/stores/theme'
 
-const black = ref('#000000')
-const gray = ref('#deddda')
+import { light, dark, darkPrimaryColor, lightPrimaryColor, darkAccentColor, lightAccentColor } from '@/components/theme/theme'
+
+// const black = ref('#000000')
+// const gray = ref('#deddda')
 
 const themeStore = useThemeStore()
 </script>
@@ -11,7 +13,7 @@ const themeStore = useThemeStore()
 <!-- https://www.svgrepo.com/svg/154322/parrot -->
 <!-- https://www.svgrepo.com/svg/134312/parrot -->
 <template>
-    <svg :fill="themeStore.theme == 'light'? black: gray" height="35px" width="35px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+    <svg :fill="themeStore.theme == light? lightAccentColor: darkAccentColor" height="35px" width="35px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

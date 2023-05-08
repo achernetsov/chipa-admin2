@@ -19,14 +19,14 @@ function onThemeToggle(){
     const previousTheme = findCurrentTheme()
     console.info(`Changing theme from: ${previousTheme}`)
 
-    useThemeStore().theme = previousTheme == 'dark'? 'light': 'dark'
+    useThemeStore().theme = previousTheme == 'dark'? 'winter': 'dark'
 }
 </script>
 
 <!-- https://github.com/saadeghi/theme-change -->
 <template>
-    <button @click="onThemeToggle()" class="btn gap-2 btn-ghost" data-toggle-theme="dark,light" data-act-class="ACTIVECLASS">
-        <MoonIcon v-if="themeStore.theme=='light'" class="flex-1 w-5" />
+    <button @click="onThemeToggle()" class="btn gap-2 btn-ghost" data-toggle-theme="dark,winter" data-act-class="ACTIVECLASS">
+        <MoonIcon v-if="themeStore.theme=='winter'" class="flex-1 w-5" />
         <SunIcon v-if="themeStore.theme=='dark'" class="flex-1 w-5" />
     </button>
 </template>

@@ -15,7 +15,7 @@ import { RouterLink } from 'vue-router'
                 <h1 class="text-5xl font-bold">Welcome to Chipa bots!</h1>
                 <p class="py-6">You have no bots yet,<br />Let's create one!</p>
                 <RouterLink :to="{ name: 'newBotHome' }">
-                    <button class="btn btn-primary">Create first bot</button>
+                    <button class="btn btn-primary">Create bot</button>
                 </RouterLink>
             </div>
         </div>
