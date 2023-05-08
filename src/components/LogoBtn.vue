@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LogoIcon from './LogoIcon.vue';
+import LogoIcon from '@/assets/logo/LogoIcon.vue';
 </script>
 <template>
     <button class="btn gap-2 btn-ghost">

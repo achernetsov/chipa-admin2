@@ -3,8 +3,7 @@ import { MoonIcon } from '@heroicons/vue/24/solid'
 import { SunIcon } from '@heroicons/vue/24/solid'
 import { themeChange } from 'theme-change'
 import { onMounted, ref } from 'vue'
-import { findCurrentTheme } from './theme'
-import { useThemeStore } from '@/stores/theme'
+import { useThemeStore, findCurrentTheme } from '@/stores/theme'
 
 const themeStore = useThemeStore()
 

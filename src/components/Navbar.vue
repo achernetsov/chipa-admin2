@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LogoBtn from '@/components/logo/LogoBtn.vue'
+import LogoBtn from './LogoBtn.vue'
 import ThemeToggle from '@/components/theme/ThemeToggle.vue'
 import { XMarkIcon } from '@heroicons/vue/24/solid'
 import { RouterLink } from 'vue-router'

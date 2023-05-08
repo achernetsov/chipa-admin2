@@ -3,7 +3,7 @@
   "botsN": [
     {
       "id": "1",
-      "name": "bot1",
+      "name": "bot111",
       "description": "csv not saved (not trained)",
       "language": "en-EN",
       "csvSaved": false
@@ -12,6 +12,13 @@
       "id": "2",
       "name": "bot2",
       "description": "csv saved (trained)",
+      "language": "pl-PL",
+      "csvSaved": true
+    },
+    {
+      "id": "3",
+      "name": "bot3",
+
       "language": "pl-PL",
       "csvSaved": true
     }

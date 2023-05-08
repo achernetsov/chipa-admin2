@@ -10,9 +10,8 @@ defineProps({
 </script>
 
 <template>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <BotCard v-for="bot in bots" :id="bot.id!" :name="bot.name" :description="bot.description" :csv-saved="bot.csvSaved"
-            :language="bot.language">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <BotCard v-for="bot in bots" :bot="bot">
         </BotCard>
     </div>
 </template>
