@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BotCardParrot from '@/assets/BotCardParrot.vue'
 
+import { RouterLink } from 'vue-router';
 import { type Bot } from '@/model/bots';
 import { type PropType } from 'vue';
 import { lang } from '@/i18n/i18'
@@ -20,7 +21,11 @@ defineProps({
             <div class="badge badge-secondary">{{ lang(bot.language) }}</div>
             <p class="">{{ bot.description }}</p>
             <div class="card-actions justify-end">
-                <button class="btn btn-info">Edit</button>
+                <!-- named route does not work for some reason; doesn't redirect to bots/id/info tab-->
+                <!-- <RouterLink :to="{name: 'editBotHome', params: {id: bot.id}}"> -->
+                <RouterLink :to="`/bots/${bot.id}/info`">
+                    <button class="btn btn-info">Edit</button>
+                </RouterLink>
                 <button v-if="bot.csvSaved" class="btn btn-info">Stats</button>
             </div>
         </div>

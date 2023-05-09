@@ -1,9 +1,9 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import BotsView from '@/views/BotsView.vue'
-import BotView from '@/views/BotView.vue'
-import EditBot from '@/components/bot/EditBot.vue'
 import BotStats from '@/components/bot/BotStats.vue'
+import EditBot from '@/components/bot/EditBot.vue'
+import BotView from '@/views/BotView.vue'
+import BotsView from '@/views/BotsView.vue'
 import LogoutView from '@/views/LogoutView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,7 +26,7 @@ const router = createRouter({
     {
       path: '/bots/:id',
       name: 'editBot',
-      component: () => import('@/views/BotView.vue'),
+      component: BotView,
       children: [
         {
           path: '',
@@ -48,7 +48,7 @@ const router = createRouter({
     {
       path: '/bots/new',
       name: 'newBot',
-      component: BotView
+      component: BotView,
     },
     {
       path: '/logout',
