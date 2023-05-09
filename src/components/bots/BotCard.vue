@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="card md:w-96 bg-primary text-primary-content">
+    <div class="card bg-primary text-primary-content">
         <div class="card-body items-center text-center">
             <div class="flex gap-4 flex-wrap overflow-x-auto">
                 <BotCardParrot/>
@@ -20,8 +20,8 @@ defineProps({
             <div class="badge badge-secondary">{{ lang(bot.language) }}</div>
             <p class="">{{ bot.description }}</p>
             <div class="card-actions justify-end">
-                <button class="btn btn-accent">Accept</button>
-                <button class="btn btn-ghost">Deny</button>
+                <button class="btn btn-info">Edit</button>
+                <button v-if="bot.csvSaved" class="btn btn-info">Stats</button>
             </div>
         </div>
     </div>

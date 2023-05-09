@@ -13,63 +13,7 @@
     {
       "id": "1",
       "name": "bot111 very long",
-      "description": "csv not saved (not trained) ",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
-      "language": "en-EN",
-      "csvSaved": false
-    },
-    {
-      "id": "1",
-      "name": "bot111",
-      "description": "csv not saved (not trained)",
+      "description": "csv not saved (not trained) csv not saved (not trained)",
       "language": "en-EN",
       "csvSaved": false
     },
@@ -83,6 +27,7 @@
     {
       "id": "3",
       "name": "bot3",
+      "description": "csv not saved (not trained) ",
       "language": "pl-PL",
       "csvSaved": true
     }
