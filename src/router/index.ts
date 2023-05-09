@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: '/welcome',
       name: 'welcome',
-      component: () => import('@/views/FirstBotView.vue'),
+      component: () => import('@/views/WelcomeView.vue'),
     },
     {
       path: '/bots',
@@ -24,13 +24,13 @@ const router = createRouter({
       component: BotsView,
     },
     {
-      path: '/bots/new',
-      name: 'newBot',
-      component: BotView,
+      path: '/bots/:id',
+      name: 'editBot',
+      component: () => import('@/views/BotView.vue'),
       children: [
         {
           path: '',
-          name: 'newBotHome',
+          name: 'editBotHome',
           redirect: { name: 'editBot' },
         },
         {
@@ -44,6 +44,11 @@ const router = createRouter({
           component: BotStats,
         },
       ],
+    },
+    {
+      path: '/bots/new',
+      name: 'newBot',
+      component: BotView
     },
     {
       path: '/logout',

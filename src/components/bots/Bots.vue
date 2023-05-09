@@ -22,7 +22,7 @@ defineProps({
             </BotCard>
         </div>
         <div id="buttons" class="flex md:col-span-2 lg:col-span-3 justify-center">
-            <RouterLink :to="{ name: 'newBotHome' }">
+            <RouterLink :to="{ name: 'newBot' }">
                 <button class="btn btn-secondary btn-outline gap-2">
                     <PlusCircleIcon class="w-6 h-6" />
                     Create bot
