@@ -13,7 +13,7 @@ import { RouterLink } from 'vue-router'
             <HeroParrot class="max-w-sm"/>
             <div class="flex flex-col text-center lg:text-left">
                 <h1 class="text-5xl font-bold">Welcome to Chipa bots!</h1>
-                <p class="py-6">You have no bots yet,<br />Let's create one!</p>
+                <p class="py-6">You have no bots yet.<br />Let's create one!</p>
                 <RouterLink :to="{ name: 'newBot' }">
                     <button class="btn btn-secondary btn-outline">Create bot</button>
                 </RouterLink>
