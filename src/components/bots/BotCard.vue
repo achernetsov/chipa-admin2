@@ -18,7 +18,7 @@ defineProps({
                 <BotCardParrot />
                 <h2 class="card-title max-w-xs whitespace-nowrap">{{ bot.name }}</h2>
             </div>
-            <div class="badge badge-secondary">{{ lang(bot.language) }}</div>
+            <div class="badge badge-outline badge-ghost">{{ lang(bot.language) }}</div>
             <p class="">{{ bot.description }}</p>
             <div class="card-actions justify-end">
                 <!-- named route does not work for some reason; doesn't redirect to bots/id/info tab-->
