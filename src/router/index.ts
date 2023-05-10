@@ -1,5 +1,6 @@
 import BotStats from '@/components/bot/BotStats.vue'
 import EditBot from '@/components/bot/EditBot.vue'
+import Interaction from '@/components/bot/Interaction.vue'
 import BotView from '@/views/BotView.vue'
 import BotsView from '@/views/BotsView.vue'
 import LogoutView from '@/views/LogoutView.vue'
@@ -42,6 +43,11 @@ const router = createRouter({
           name: 'botStats',
           path: 'stats',
           component: BotStats,
+        },
+        {
+          name: 'interactionInfo',
+          path: 'interaction',
+          component: Interaction,
         },
       ],
     },

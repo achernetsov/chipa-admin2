@@ -2,7 +2,6 @@
 import EditBot from './bot/EditBot.vue';
 
 import { useBotStore } from '@/stores/currentBot';
-import { onMounted } from 'vue';
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 
 const route = useRoute()

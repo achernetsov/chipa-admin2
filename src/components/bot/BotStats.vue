@@ -1,29 +1,93 @@
 <script setup lang="ts">
-import { useBotStore } from '@/stores/currentBot'
+import { type Interaction, type Page } from '@/model/interactions';
+import { dateTimeFormatted } from '@/utils';
+import { useBotStore } from '@/stores/currentBot';
+import { authHeaders } from '@/stores/keycloak';
+import { onMounted, ref } from 'vue';
 
-const botStore = useBotStore()
+const interactions = ref<Interaction[]>()
+const loading = ref(true)
+
+const page = ref({
+    from: 0,
+    to: 0,
+    overallPages: 0,
+    overallInteractions: 0,
+    currentPage: 0
+} as Page)
+
+
+interface Pages {
+    amount: number,
+    interactions: number,
+    pageSize: number
+}
+
+function fetchBotRespondedEvents(newPage: number) {
+    page.value.currentPage = newPage
+    console.info('fetching BotResponded events...')
+    fetch('/api/stats/' + useBotStore().bot!.id + '/interactions?page=' + page.value.currentPage, { headers: authHeaders() })
+        .then((response) => {
+            // console.debug(response)
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(`Error loading interactions: ${response.statusText}`);
+        })
+        .then((data: Interaction[]) => {
+            interactions.value = data
+            console.info('Stats page loaded.')
+
+            // footer info
+            page.value.from = page.value.currentPage * page.value.pageSize + 1
+            page.value.to = page.value.from + page.value.pageSize - 1
+
+            loading.value = false
+            // pageSwitching.value = false
+        })
+        .catch((err) => {
+            interactions.value = []
+            console.error(err)
+            // TODO show error
+        })
+}
+
+onMounted(() => {
+    fetchBotRespondedEvents(page.value.currentPage)
+})
 </script>
 
 <template>
-    stats
-    <!-- <div id="item-proprs-tab" class="overflow-x-auto">
-        <table class="table w-full">
+    <div id="bot-stats-tab" class="overflow-x-auto">
+        <button v-if="loading" class="btn loading mt-6">loading</button>
+        <table v-if="!loading" class="table w-full">
             <thead>
                 <tr>
-                    <th></th>
-                    <th>Property</th>
-                    <th>Value</th>
-                    <th>Comment</th>
+                    <th>Time</th>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Info</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(prop, index) in itemStore.item?.props">
-                    <th>{{ index + 1 }}</th>
-                    <td>{{ prop.name }}</td>
-                    <td>{{ prop.value }}</td>
-                    <td>{{ prop.comment }}</td>
-                </tr>
+                <template v-for="interaction in interactions">
+                    <tr>
+                        <td>
+                            <!-- https://www.geeksforgeeks.org/how-to-implement-datetime-localization-in-vue-js/ -->
+                            {{ dateTimeFormatted(interaction.requestTimestamp) }}
+                        </td>
+                        <td>{{ interaction.requestText }}</td>
+                        <td>{{ interaction.responseText }}</td>
+                        <th>
+                            <button class="btn btn-ghost btn-xs">details</button>
+                        </th>
+                    </tr>
+                    <tr v-if="false">
+                        <td>test</td>
+                    </tr>
+                </template>
+
             </tbody>
         </table>
-    </div> -->
+    </div>
 </template>
