@@ -25,7 +25,7 @@ const router = createRouter({
     },
     {
       path: '/bots/:id',
-      name: 'editBot',
+      name: 'bot',
       component: BotView,
       children: [
         {
@@ -40,7 +40,7 @@ const router = createRouter({
         },
         {
           name: 'botStats',
-          path: 'props',
+          path: 'stats',
           component: BotStats,
         },
       ],

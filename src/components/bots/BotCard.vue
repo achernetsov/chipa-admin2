@@ -15,7 +15,7 @@ defineProps({
     <div class="card bg-base-100">
         <div class="card-body items-center text-center">
             <div class="flex gap-4 flex-wrap overflow-x-auto">
-                <BotCardParrot/>
+                <BotCardParrot />
                 <h2 class="card-title max-w-xs whitespace-nowrap">{{ bot.name }}</h2>
             </div>
             <div class="badge badge-secondary">{{ lang(bot.language) }}</div>
@@ -26,7 +26,9 @@ defineProps({
                 <RouterLink :to="`/bots/${bot.id}/info`">
                     <button class="btn btn-primary">Edit</button>
                 </RouterLink>
-                <button v-if="bot.csvSaved" class="btn btn-primary">Stats</button>
+                <RouterLink :to="`/bots/${bot.id}/stats`">
+                    <button v-if="bot.csvSaved" class="btn btn-primary">Stats</button>
+                </RouterLink>
             </div>
         </div>
     </div>
