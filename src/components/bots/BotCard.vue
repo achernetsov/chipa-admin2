@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-    <div class="card bg-primary text-primary-content">
+    <div class="card bg-base-100">
         <div class="card-body items-center text-center">
             <div class="flex gap-4 flex-wrap overflow-x-auto">
                 <BotCardParrot/>
@@ -24,9 +24,9 @@ defineProps({
                 <!-- named route does not work for some reason; doesn't redirect to bots/id/info tab-->
                 <!-- <RouterLink :to="{name: 'editBotHome', params: {id: bot.id}}"> -->
                 <RouterLink :to="`/bots/${bot.id}/info`">
-                    <button class="btn btn-info">Edit</button>
+                    <button class="btn btn-primary">Edit</button>
                 </RouterLink>
-                <button v-if="bot.csvSaved" class="btn btn-info">Stats</button>
+                <button v-if="bot.csvSaved" class="btn btn-primary">Stats</button>
             </div>
         </div>
     </div>

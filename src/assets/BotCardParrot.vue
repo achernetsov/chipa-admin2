@@ -7,7 +7,7 @@ const themeStore = useThemeStore()
 
 <!-- https://www.svgrepo.com/svg/154322/parrot -->
 <template>
-    <svg :fill="themeStore.primaryContentColor" height="32px" width="32px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+    <svg :fill="themeStore.accentColor" height="32px" width="32px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 380.014 380.014" xml:space="preserve"
         transform="matrix(-1, 0, 0, 1, 0, 0)">
     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
