@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import InteractionDetails from '../stats/InteractionDetails.vue';
+import InteractionDetails from '@/components/stats/InteractionDetails.vue';
+import Pages from '@/components/Pages.vue';
 
 import { type Interaction, type Page } from '@/model/interactions';
 import { dateTimeFormatted } from '@/utils';
@@ -45,7 +46,32 @@ function fetchBotRespondedEvents(newPage: number) {
             page.value.to = page.value.from + page.value.pageSize - 1
 
             loading.value = false
-            // pageSwitching.value = false
+        })
+        .catch((err) => {
+            interactions.value = []
+            console.error(err)
+            // TODO show error
+        })
+}
+
+function fetchPages() {
+    console.info("Loading pages...")
+    fetch(`/api/stats/${useBotStore().bot!.id}/interactions/pages`)
+        .then((response) => {
+            // console.debug(response)
+            if (response.ok) {
+                return response.json()
+            }
+            throw new Error(response.statusText);
+        })
+        .then((data: Pages) => {
+            page.value.overallPages = data.amount
+            page.value.overallInteractions = data.interactions
+            page.value.pageSize = data.pageSize
+            console.info("Pages loaded: " + JSON.stringify(data))
+
+            // fetching first page
+            fetchBotRespondedEvents(0)
         })
         .catch((err) => {
             interactions.value = []
@@ -55,7 +81,7 @@ function fetchBotRespondedEvents(newPage: number) {
 }
 
 onMounted(() => {
-    fetchBotRespondedEvents(page.value.currentPage)
+    fetchPages()
 })
 
 function toggleInteractionDetails(interaction: Interaction) {
@@ -72,7 +98,7 @@ function toggleInteractionDetails(interaction: Interaction) {
     <div id="bot-stats-tab" class="overflow-x-auto">
         <button v-if="loading" class="btn loading mt-6">loading</button>
         <div v-if="!loading">
-            <table v-if="!loading" class="table w-full">
+            <table class="table w-full">
                 <thead>
                     <tr>
                         <th>Time</th>
@@ -104,14 +130,7 @@ function toggleInteractionDetails(interaction: Interaction) {
 
                 </tbody>
             </table>
-            <div class="text-right pr-4 pt-4">
-                <div class="btn-group">
-                    <button class="btn btn-link btn-sm">1</button>
-                    <button class="btn btn-link btn-sm btn-active">2</button>
-                    <button class="btn btn-link btn-sm">3</button>
-                    <button class="btn btn-link btn-sm">4</button>
-                </div>
-            </div>
+            <Pages class="text-right pr-4 pt-4" :page="page"/>
         </div>
     </div>
 </template>
