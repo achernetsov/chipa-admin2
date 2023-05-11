@@ -44,11 +44,6 @@ const router = createRouter({
           path: 'stats',
           component: BotStats,
         },
-        {
-          name: 'interactionInfo',
-          path: 'interaction',
-          component: Interaction,
-        },
       ],
     },
     {

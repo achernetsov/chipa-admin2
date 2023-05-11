@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import InteractionDetails from '../stats/InteractionDetails.vue';
+
 import { type Interaction, type Page } from '@/model/interactions';
 import { dateTimeFormatted } from '@/utils';
 import { useBotStore } from '@/stores/currentBot';
@@ -55,6 +57,15 @@ function fetchBotRespondedEvents(newPage: number) {
 onMounted(() => {
     fetchBotRespondedEvents(page.value.currentPage)
 })
+
+function toggleInteractionDetails(interaction: Interaction){
+    for (var i of interactions.value!){
+        if (i!=interaction){
+            i.showingDetails=false
+        }
+    }
+    interaction.showingDetails = !interaction.showingDetails
+}
 </script>
 
 <template>
@@ -71,7 +82,7 @@ onMounted(() => {
             </thead>
             <tbody>
                 <template v-for="interaction in interactions">
-                    <tr>
+                    <tr :class="interaction.showingDetails? 'active': ''">
                         <td>
                             <!-- https://www.geeksforgeeks.org/how-to-implement-datetime-localization-in-vue-js/ -->
                             {{ dateTimeFormatted(interaction.requestTimestamp) }}
@@ -79,11 +90,13 @@ onMounted(() => {
                         <td>{{ interaction.requestText }}</td>
                         <td>{{ interaction.responseText }}</td>
                         <th>
-                            <button class="btn btn-ghost btn-xs">details</button>
+                            <button @click="toggleInteractionDetails(interaction)" class="btn btn-ghost btn-xs">details</button>
                         </th>
                     </tr>
-                    <tr v-if="false">
-                        <td>test</td>
+                    <tr v-if="interaction.showingDetails">
+                        <td colSpan="4">
+                            <InteractionDetails :interaction="interaction"/>
+                        </td>
                     </tr>
                 </template>
 

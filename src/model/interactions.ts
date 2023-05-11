@@ -12,7 +12,8 @@ export interface Interaction {
     responseTimestamp: Date
     searchResult: ResponseWithDistance[] // responses sorted by distance from nearest request in CSV (first is most probable response)
     searchThreshold: number,
-    responseText: string
+    responseText: string,
+    showingDetails: boolean
 }
 
 export interface Page {
