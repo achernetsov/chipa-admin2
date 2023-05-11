@@ -58,10 +58,10 @@ onMounted(() => {
     fetchBotRespondedEvents(page.value.currentPage)
 })
 
-function toggleInteractionDetails(interaction: Interaction){
-    for (var i of interactions.value!){
-        if (i!=interaction){
-            i.showingDetails=false
+function toggleInteractionDetails(interaction: Interaction) {
+    for (var i of interactions.value!) {
+        if (i != interaction) {
+            i.showingDetails = false
         }
     }
     interaction.showingDetails = !interaction.showingDetails
@@ -71,36 +71,47 @@ function toggleInteractionDetails(interaction: Interaction){
 <template>
     <div id="bot-stats-tab" class="overflow-x-auto">
         <button v-if="loading" class="btn loading mt-6">loading</button>
-        <table v-if="!loading" class="table w-full">
-            <thead>
-                <tr>
-                    <th>Time</th>
-                    <th>Question</th>
-                    <th>Answer</th>
-                    <th>Info</th>
-                </tr>
-            </thead>
-            <tbody>
-                <template v-for="interaction in interactions">
-                    <tr :class="interaction.showingDetails? 'active': ''">
-                        <td>
-                            <!-- https://www.geeksforgeeks.org/how-to-implement-datetime-localization-in-vue-js/ -->
-                            {{ dateTimeFormatted(interaction.requestTimestamp) }}
-                        </td>
-                        <td>{{ interaction.requestText }}</td>
-                        <td>{{ interaction.responseText }}</td>
-                        <th>
-                            <button @click="toggleInteractionDetails(interaction)" class="btn btn-ghost btn-xs">details</button>
-                        </th>
+        <div v-if="!loading">
+            <table v-if="!loading" class="table w-full">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Info</th>
                     </tr>
-                    <tr v-if="interaction.showingDetails">
-                        <td colSpan="4">
-                            <InteractionDetails :interaction="interaction"/>
-                        </td>
-                    </tr>
-                </template>
+                </thead>
+                <tbody>
+                    <template v-for="interaction in interactions">
+                        <tr :class="interaction.showingDetails ? 'active' : ''">
+                            <td>
+                                <!-- https://www.geeksforgeeks.org/how-to-implement-datetime-localization-in-vue-js/ -->
+                                {{ dateTimeFormatted(interaction.requestTimestamp) }}
+                            </td>
+                            <td>{{ interaction.requestText }}</td>
+                            <td>{{ interaction.responseText }}</td>
+                            <th>
+                                <button @click="toggleInteractionDetails(interaction)"
+                                    class="btn btn-ghost btn-xs">details</button>
+                            </th>
+                        </tr>
+                        <tr v-if="interaction.showingDetails">
+                            <td colSpan="4">
+                                <InteractionDetails :interaction="interaction" />
+                            </td>
+                        </tr>
+                    </template>
 
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+            <div class="text-right pr-4 pt-4">
+                <div class="btn-group">
+                    <button class="btn btn-link btn-sm">1</button>
+                    <button class="btn btn-link btn-sm btn-active">2</button>
+                    <button class="btn btn-link btn-sm">3</button>
+                    <button class="btn btn-link btn-sm">4</button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
