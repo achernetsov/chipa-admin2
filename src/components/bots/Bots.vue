@@ -21,7 +21,7 @@ defineProps({
             <BotCard class="" v-for="bot in bots" :bot="bot">
             </BotCard>
         </div>
-        <div id="buttons" class="flex md:col-span-2 lg:col-span-3 justify-center">
+        <div id="buttons" class="flex md:col-span-2 lg:col-span-3 justify-center md:justify-start">
             <RouterLink :to="{ name: 'newBot' }">
                 <button class="btn btn-secondary btn-outline gap-2">
                     <PlusCircleIcon class="w-6 h-6" />
