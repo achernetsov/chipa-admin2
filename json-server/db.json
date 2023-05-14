@@ -186,6 +186,140 @@
       "responseText": "2"
     }
   ],
+  "bots_2_interactions_page1": [
+    {
+      "id": 37887,
+      "requestTimestamp": "2023-04-04T11:49:52.789068",
+      "requestText": "Текст вопроса page index 1 (number 2)",
+      "source": "api",
+      "responseTimestamp": "2023-04-04T11:49:52.845966",
+      "searchResult": [
+        {
+          "response": "Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса Текст вопроса",
+          "distance": 1.3059,
+          "requestInCsv": "сертификат"
+        },
+        {
+          "response": "1",
+          "distance": 1.3432,
+          "requestInCsv": "акции"
+        }
+      ],
+      "searchThreshold": 0.9,
+      "searchThresholdExceeded": true,
+      "responseText": "К сожалению, я не могу ответить на этот вопрос 123"
+    },
+    {
+      "id": 37883,
+      "requestTimestamp": "2023-04-04T11:48:46.437634",
+      "requestText": "выхухоль",
+      "source": "api",
+      "responseTimestamp": "2023-04-04T11:48:46.45825",
+      "searchResult": [
+        {
+          "response": "2",
+          "distance": 1.2161,
+          "requestInCsv": "подарочный"
+        },
+        {
+          "response": "1",
+          "distance": 1.2228,
+          "requestInCsv": "именинник"
+        }
+      ],
+      "searchThreshold": 0.9,
+      "searchThresholdExceeded": true,
+      "responseText": "К сожалению, я не могу ответить на этот вопрос"
+    },
+    {
+      "id": 37882,
+      "requestTimestamp": "2023-04-04T11:48:45.140082",
+      "requestText": "выхухоль",
+      "source": "api",
+      "responseTimestamp": "2023-04-04T11:48:45.167974",
+      "searchResult": [
+        {
+          "response": "2",
+          "distance": 1.2161,
+          "requestInCsv": "подарочный"
+        },
+        {
+          "response": "1",
+          "distance": 1.2228,
+          "requestInCsv": "именинник"
+        }
+      ],
+      "searchThreshold": 0.9,
+      "searchThresholdExceeded": true,
+      "responseText": "К сожалению, я не могу ответить на этот вопрос"
+    },
+    {
+      "id": 37881,
+      "requestTimestamp": "2023-04-04T11:48:41.029736",
+      "requestText": "2",
+      "source": "api",
+      "responseTimestamp": "2023-04-04T11:48:41.054229",
+      "searchResult": [
+        {
+          "response": "1",
+          "distance": 1.4142,
+          "requestInCsv": "Скидки"
+        },
+        {
+          "response": "1",
+          "distance": 1.4142,
+          "requestInCsv": "акции"
+        }
+      ],
+      "searchThreshold": 0.9,
+      "searchThresholdExceeded": true,
+      "responseText": "К сожалению, я не могу ответить на этот вопрос"
+    },
+    {
+      "id": 37880,
+      "requestTimestamp": "2023-04-04T11:48:36.712648",
+      "requestText": "1",
+      "source": "api",
+      "responseTimestamp": "2023-04-04T11:48:36.743734",
+      "searchResult": [
+        {
+          "response": "1",
+          "distance": 1.4142,
+          "requestInCsv": "Скидки"
+        },
+        {
+          "response": "1",
+          "distance": 1.4142,
+          "requestInCsv": "акции"
+        }
+      ],
+      "searchThreshold": 0.9,
+      "searchThresholdExceeded": true,
+      "responseText": "К сожалению, я не могу ответить на этот вопрос"
+    },
+    {
+      "id": 37867,
+      "requestTimestamp": "2023-04-04T11:44:17.034516",
+      "requestText": "Сколько стоит подарочный сертификат?",
+      "source": "api",
+      "responseTimestamp": "2023-04-04T11:44:17.07823",
+      "searchResult": [
+        {
+          "response": "2",
+          "distance": 0.7184,
+          "requestInCsv": "сертификат"
+        },
+        {
+          "response": "2",
+          "distance": 0.7949,
+          "requestInCsv": "подарочный"
+        }
+      ],
+      "searchThreshold": 0.9,
+      "searchThresholdExceeded": false,
+      "responseText": "2"
+    }
+  ],
   "bots_2_chat": {
     "text": "response"
   }

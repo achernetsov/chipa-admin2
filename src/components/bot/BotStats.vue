@@ -26,9 +26,8 @@ interface Pages {
     pageSize: number
 }
 
-function fetchBotRespondedEvents(newPage: number) {
-    page.value.currentPage = newPage
-    console.info('fetching BotResponded events...')
+function fetchBotRespondedEvents() {
+    console.info(`fetching BotResponded events for page number ${page.value.currentPage + 1}...`)
     fetch('/api/stats/' + useBotStore().bot!.id + '/interactions?page=' + page.value.currentPage, { headers: authHeaders() })
         .then((response) => {
             // console.debug(response)
@@ -41,7 +40,6 @@ function fetchBotRespondedEvents(newPage: number) {
             interactions.value = data
             console.info('Stats page loaded.')
 
-            // footer info
             page.value.from = page.value.currentPage * page.value.pageSize + 1
             page.value.to = page.value.from + page.value.pageSize - 1
 
@@ -71,7 +69,8 @@ function fetchPages() {
             console.info("Pages loaded: " + JSON.stringify(data))
 
             // fetching first page
-            fetchBotRespondedEvents(0)
+            page.value.currentPage = 0
+            fetchBotRespondedEvents()
         })
         .catch((err) => {
             interactions.value = []
@@ -130,7 +129,7 @@ function toggleInteractionDetails(interaction: Interaction) {
 
                 </tbody>
             </table>
-            <Pages class="text-right pr-4 pt-4" :page="page"/>
+            <Pages class="text-right pr-4 pt-4" :page="page" @pageChanged="fetchBotRespondedEvents"/>
         </div>
     </div>
 </template>

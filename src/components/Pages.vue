@@ -5,10 +5,12 @@ import { type PropType } from 'vue';
 const props = defineProps({
     page: { type: Object as PropType<Page>, required: true }
 })
+const emit = defineEmits(['pageChanged'])
 
 function changePage(pageNumber: number) {
     console.info(`Changing page to ${pageNumber}`)
     props.page.currentPage = pageNumber
+    emit('pageChanged', pageNumber)
 }
 </script>
 
