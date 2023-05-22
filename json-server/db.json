@@ -34,15 +34,22 @@
   ],
   "bots_1": {
     "id": "1",
-    "name": "Test bot 1",
-    "description": "Test bot 1 description",
+    "name": "bot111 very long",
+    "description": "csv not saved (not trained) csv not saved (not trained)",
     "language": "en-EN",
     "csvSaved": false
   },
   "bots_2": {
     "id": "2",
-    "name": "Test bot 2",
-    "description": "Test bot 1 description",
+    "name": "bot2",
+    "description": "csv saved (trained)",
+    "language": "pl-PL",
+    "csvSaved": true
+  },
+  "bots_3": {
+    "id": "3",
+    "name": "bot3",
+    "description": "csv not saved (not trained) ",
     "language": "pl-PL",
     "csvSaved": true
   },
