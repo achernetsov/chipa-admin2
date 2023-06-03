@@ -12,7 +12,7 @@ const botStore = useBotStore()
                 <label class="label">
                     <span class="label-text">Telegram token 
                     <a href="https://core.telegram.org/bots/features#botfather"
-                            target="_blank" class="link link-primary">(instructions)</a>
+                            target="_blank" class="link link-secondary">(instructions)</a>
                         </span>
                 </label>
 

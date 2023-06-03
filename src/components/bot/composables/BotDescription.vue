@@ -1,7 +1,47 @@
 <script setup lang="ts">
+import router from '@/router';
 import { useBotStore } from '@/stores/currentBot';
+import { postHeaders } from '@/stores/keycloak';
+import { onBeforeMount } from 'vue';
 
 const botStore = useBotStore()
+
+onBeforeMount(() => {
+    console.debug('BotDescription component before mount')
+})
+
+function save() {
+    if (!valid()) {
+        console.warn('Invalid bot form')
+        return
+    }
+    console.info("Saving bot...")
+
+    let botJson: string = JSON.stringify(botStore.bot!)
+
+    fetch('/api/bots', postHeaders(botJson))
+        .then((response) => {
+            // console.debug(response)
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(data => {
+            console.info("Bot saved: " + JSON.stringify(data))
+            router.push({ name: 'editBot', params: { id: data.botId } })
+                .then(() => botStore.bot!.id = data.botId)
+        })
+        // https://stackoverflow.com/a/38956175/827704
+        // TODO move inside showToast https://gitlab.com/autofaqer-group/autofaqer-webapp/-/issues/1
+        // .then(() => new Promise(resolve => setTimeout(resolve, 3000)))
+        // .then(() => hideToast(botDescriptionNotification.value.id))
+        .catch(err => console.error(err))
+}
+
+function valid() {
+    return botStore.bot?.name && botStore.bot?.language != ''
+}
 </script>
 
 <template>
@@ -35,7 +75,7 @@ const botStore = useBotStore()
         </div>
 
         <div id="form-actions" class="card-actions justify-start">
-            <button class="btn btn-primary">Save</button>
+            <button @click="save" class="btn btn-primary">Save</button>
         </div>
     </div>
 </template>

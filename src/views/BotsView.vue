@@ -41,7 +41,7 @@ onMounted(() => {
 
 <template>
     <PageContentLayout>
-        <button v-if="!error && !bots" class="btn loading">loading</button>
+        <button v-if="!error && !bots" class="btn loading">Loading...</button>
         <Bots v-if="bots" :bots="bots"></Bots>
         <SomethingWrongError v-if="error" />
     </PageContentLayout>

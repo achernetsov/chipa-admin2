@@ -1,3 +1,4 @@
+<!-- deprecated -->
 <script setup lang="ts">
 import { useBotStore } from '@/stores/currentBot';
 
