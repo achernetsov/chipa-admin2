@@ -1,3 +1,4 @@
+# TODO cache node
 # https://cli.vuejs.org/guide/deployment.html#docker-nginx
 FROM node:latest as build-stage
 WORKDIR /app
