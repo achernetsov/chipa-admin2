@@ -4,5 +4,5 @@ export interface Bot {
     description: string;
     language: string;
     csvSaved: boolean;
-    telegramToken: string
+    telegramTokenSaved: boolean;
 }
