@@ -2,12 +2,33 @@
 import router from '@/router';
 import { useBotStore } from '@/stores/currentBot';
 import { postHeaders } from '@/stores/keycloak';
-import { onBeforeMount } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 
 const botStore = useBotStore()
+const availableLanguages = ref<String[]>()
+const langNames = new Map<String,String>()
+langNames.set('en-EN', 'English')
+langNames.set('pl-PL', 'Polish')
+langNames.set('ru-RU', 'Russian')
 
 onBeforeMount(() => {
     console.debug('BotDescription component before mount')
+    fetch('/api/property/availableLanguages')
+        .then(response => {
+            if (response.ok) {
+                // chat.value.error = ''
+                return response.json()
+            }
+            throw new Error(response.statusText);
+        })
+        .then(data => {
+            console.info('Available languages: ' + data)
+            availableLanguages.value = data
+        }
+        )
+        .catch((err: Error) => {
+            console.error('Error loading available languages: ' + err)
+        })
 })
 
 function save() {
@@ -59,10 +80,12 @@ function valid() {
                 <label class="label">
                     <span class="label-text">Language</span>
                 </label>
-                <select v-model="botStore.bot!.language" class="select select-bordered">
-                    <option value="en-EN" selected>English</option>
+                <select v-if="availableLanguages" id="language-selector" v-model="botStore.bot!.language"
+                    class="select select-bordered">
+                    <!-- <option value="en-EN" selected>English</option>
                     <option value="pl-PL">Polish</option>
-                    <option value="ru-RU">Russian</option>
+                    <option value="ru-RU">Russian</option> -->
+                    <option v-for="l in availableLanguages" :value="l">{{ langNames.get(l) }}</option>
                 </select>
             </div>
             <div class="form-control md:col-span-2">
