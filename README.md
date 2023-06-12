@@ -5,7 +5,7 @@ Web UI for https://chipa.archertech.ru
 user: demo
 pass: demo
 
-Project blog: https://archertech.ru/projects/chipa/
+Project blog: https://archertech.ru/projects/chipa/, frontend app post: https://archertech.ru/posts/2023-06-12-front-dev-insights
 
 See screenshots below.
 
