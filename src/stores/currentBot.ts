@@ -14,6 +14,6 @@ export function initNewBot() {
     id: null,
     name: '',
     description: '',
-    language: 'en-EN'
+    language: ''
   } as Bot
 }
