@@ -1,21 +1,77 @@
 # Overview
 
-Minimalistic admin template on Vue and [Daisyui](https://daisyui.com)
+Web UI for https://chipa.archertech.ru
 
-Live preview: https://archertech-lab.gitlab.io/daisyui-vue-admin-minimal
+user: demo
+pass: demo
+
+Project blog: https://archertech.ru/projects/chipa/
+
+See screenshots below.
+
+Based on https://github.com/achernetsov/daisyui-vue-admin-minimal
 
 # Features
 - Vue, Vite, Typescript, Vue-Router, Pinia store
-- [Daisyui](https://daisyui.com) components
+- [Daisyui](https://daisyui.com) components (hero, cards, forms)
 - Responsive layout
 - Dark / light theme toggle with [theme-change](https://github.com/saadeghi/theme-change)
-- Form with tabs; tabs implemented using nested routes; state displayed within tabs located in Pinia store
+- Form with tabs; tabs implemented using Vue router nested routes; state displayed within tabs located in Pinia store
 - [Hero icons](https://github.com/tailwindlabs/heroicons)
+- Keycloak integration on https://www.npmjs.com/package/keycloak-js
+- API integration
 
-# Initial setup
-1. https://github.com/vuejs/create-vue
-1. https://tailwindcss.com/docs/guides/vite#vue
-1. https://daisyui.com/docs/install/
+# How to bootstrap dev environment
+
+Disable keycloak in .env.development:
+
+```
+VITE_KEYCLOAK_ENABLED=false
+```
+
+Bootstrap API mock:
+
+```shell
+npm run api
+```
+
+Bootstap app:
+
+```shell
+npm run dev
+```
+
+## With keycloak
+
+Enable keycloak in .env.development:
+
+```
+VITE_KEYCLOAK_ENABLED=true
+```
+
+Bootstrap keycloak using docker-compose:
+
+```
+docker-compose up -d
+```
+
+Bootstrap API mock:
+
+```shell
+npm run api
+```
+
+Bootstap app:
+
+```shell
+npm run dev
+```
+
+# Screenshots
+![Screenshot 1](docs/demo1.png)
+![Screenshot 2](docs/demo2.png)
+![Screenshot 3](docs/demo3.png)
+![Screenshot 4](docs/demo4.png)
 
 # Original vite instructions
 
