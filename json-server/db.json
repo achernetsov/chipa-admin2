@@ -328,7 +328,11 @@
     }
   ],
   "bots_2_chat": {
-    "text": "response"
+    "text": "Tekst pytania"
   },
-  "availableLanguages": ["ru-RU"]
+  "availableLanguages": [
+    "en-EN",
+    "pl-PL",
+    "ru-RU"
+  ]
 }
