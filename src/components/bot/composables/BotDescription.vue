@@ -24,6 +24,10 @@ onBeforeMount(() => {
         .then(data => {
             console.info('Available languages: ' + data)
             availableLanguages.value = data
+
+            if (botStore.bot!.language==''){
+                botStore.bot!.language = availableLanguages.value![0].toString()
+            }
         }
         )
         .catch((err: Error) => {

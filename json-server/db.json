@@ -329,5 +329,6 @@
   ],
   "bots_2_chat": {
     "text": "response"
-  }
+  },
+  "availableLanguages": ["ru-RU"]
 }

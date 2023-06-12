@@ -9,5 +9,6 @@
   "/api/stats/2/interactions?page=2": "/bots_2_interactions_page0",
   "/api/stats/2/interactions?page=3": "/bots_2_interactions_page0",
   "/api/stats/2/interactions?page=4": "/bots_2_interactions_page0",
-  "/api/chat/2": "/bots_2_chat"
+  "/api/chat/2": "/bots_2_chat",
+  "/api/property/availableLanguages": "/availableLanguages"
 }
