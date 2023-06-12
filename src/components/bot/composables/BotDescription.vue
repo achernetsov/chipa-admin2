@@ -86,9 +86,6 @@ function valid() {
                 </label>
                 <select v-if="availableLanguages" id="language-selector" v-model="botStore.bot!.language"
                     class="select select-bordered">
-                    <!-- <option value="en-EN" selected>English</option>
-                    <option value="pl-PL">Polish</option>
-                    <option value="ru-RU">Russian</option> -->
                     <option v-for="l in availableLanguages" :value="l">{{ langNames.get(l) }}</option>
                 </select>
             </div>
